@@ -1,0 +1,164 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<!-- <div class="row d-flex justify-content-center mt-100">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>File Upload</h5>
+            </div>
+            <div class="card-block">
+                <form action="#" class="dropzone dz-clickable">
+                    <p>
+                        <input type="file" name="image_name" class="btn" style="background-color: #2471A3; color:azure" required>
+                    </p>
+
+
+                    <div class="slidecontainer">
+                        <input type="range" name="output" min="1" max="100" value="50" class="slider" id="myRange" required>
+                        <p>Value: <span id="demo"></span></p>
+                      </div>
+                      
+                    <p>
+                        <input type="submit" value="submit" class="btn" style="background-color: #2471A3; color:azure">
+                    </p>
+
+                    <p align="center"> <strong>Intructions:</strong> <br>
+                        Only upload the file with extention ".png", "jpg", ".jpeg"
+                        
+                    </p>                </form>
+                <div class="text-center m-t-20">
+                    <button class="btn btn-primary">Upload Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="row1 d-flex justify-content-center mt-100">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <a class="h5" href="/">File Upload</a>
+            </div>
+            <div class="card-block">
+                <form action="#" method="POST" enctype="multipart/form-data">
+
+                    <p>
+                        <input type="file" name="image_name" class="btn" style="background-color: #2471A3; color:azure" required>
+                    </p>
+
+
+                    <div class="slidecontainer">
+                        <input type="range" name="output" min="1" max="100" value="50" class="slider" id="myRange" required>
+                        <p>Value: <span id="demo"></span></p>
+                    </div>
+                      
+                    <p>
+                        
+                    </p>
+
+                    <p align="center"> <strong>Intructions:</strong> <br>
+                        Only upload the file with extention ".png", "jpg", ".jpeg"
+                        
+                    </p>
+                
+                  
+                <div class="text-center m-t-20">
+                    <p>
+                        <input type="submit" value="submit" class="btn" style="background-color: #2471A3; color:azure">
+                    </p>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+                          
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+</script>
+
+
+
+
+
+<!-- <div class="container" id="myrow">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="uploadimg" href="#upload-image">Upload Image</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+          <div class="tab-pane active" id="upload-image" role="tabpanel" aria-labelledby="uploadimg">
+              <div class="row">
+                  <div class="col">
+                      <form action="#" method="POST" enctype="multipart/form-data">
+
+                        <p>
+                            <input type="file" name="image_name" class="btn" style="background-color: #2471A3; color:azure" required>
+                        </p>
+
+
+                        <div class="slidecontainer">
+                            <input type="range" name="output" min="1" max="100" value="50" class="slider" id="myRange" required>
+                            <p>Value: <span id="demo"></span></p>
+                          </div>
+                          
+                        <p>
+                            <input type="submit" value="submit" class="btn" style="background-color: #2471A3; color:azure">
+                        </p>
+
+                        <p align="center"> <strong>Intructions:</strong> <br>
+                            Only upload the file with extention ".png", "jpg", ".jpeg"
+                            
+                        </p>
+                    
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+                              
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script>
+</div> -->
+<br><br>
+{% if fileupload %}
+
+<div class="container" id='myrow_result'>
+    <div class="row justify-content-center">        
+        <div class="col-md-12">
+            <img class="img-responsive center-block d-block mx-auto img-fluid" src="/static/output/result.png" alt="uploaded image">
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+<!-- {% if extension %}
+    <div class="container" id=myrow_result>
+        <div class="row">
+            <p>Invalid Extension of the Image </p>
+            <p>Make sure the image extension is of following: ".png", "jpg", ".jpeg"</p>
+
+        </div>
+
+    </div>
+
+{% endif %} -->
+{% endblock  %}
